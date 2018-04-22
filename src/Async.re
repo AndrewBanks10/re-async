@@ -48,7 +48,7 @@ let reducer = (action, state) =>
     | ClearError =>
         ReasonReact.Update({...state, errorMsg: ""})
     | Clear =>
-        ReasonReact.Update({...state, data: [||], isBusy: false});
+        state.isBusy ? ReasonReact.NoUpdate : ReasonReact.Update({...state, data: [||]});
   };
 
 /*
